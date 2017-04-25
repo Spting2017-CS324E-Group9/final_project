@@ -48,7 +48,7 @@ class game {
   
     com.pop.update (clock.time, com.food);
     clock.update ();
-    com.food += 0.2;
+    //com.food += 0.2;
     
     fill (0);
     textAlign (LEFT);
