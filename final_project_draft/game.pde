@@ -27,7 +27,7 @@ class game {
     textSize (int (0.03 * height));
     text ("pop: " + com.pop.current_pop, 10, int (0.03 * height));
     text ("food: " + int (com.food), 140, int (0.03 * height));
-    text ("stuff: " + int (com.stuff), 280, int (0.03 * height));
+    text ("wood: " + int (com.stuff), 280, int (0.03 * height));
     text ("lil dudes: " + com.num_w + "/" + com.w.length, 440, int (0.03 * height));
     
     textAlign (RIGHT);
