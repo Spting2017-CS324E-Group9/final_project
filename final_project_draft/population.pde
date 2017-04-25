@@ -13,7 +13,7 @@ class population {
   }
   
   void update (int time, float resources) {
-    rgr = 0.0003 + (resources / 10000000);
+    rgr = 0.00005 + (resources / 10000000);
     this.current_pop = int (carry_cap / (1 + ((carry_cap - init_pop) / init_pop) * exp (- rgr * time)));
   }
 
