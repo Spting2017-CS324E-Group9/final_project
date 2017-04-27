@@ -52,10 +52,10 @@ class game {
     
     fill (0);
     textAlign (LEFT);
-    println ("select your worker by left clicking on them. if they are selected, you can move them by right clicking on the screen.");
-    println ("select the house in the build menu by left clicking on it. if it is selected, you can place a new house by right clicking on the screen.");
-    println ("to deselect a worker or build option, left click elsewhere on the screen.");
-    println ("press q to quit");
+    //println ("select your worker by left clicking on them. if they are selected, you can move them by right clicking on the screen.");
+    //println ("select the house in the build menu by left clicking on it. if it is selected, you can place a new house by right clicking on the screen.");
+    //println ("to deselect a worker or build option, left click elsewhere on the screen.");
+    //println ("press q to quit");
   }
 
 }
