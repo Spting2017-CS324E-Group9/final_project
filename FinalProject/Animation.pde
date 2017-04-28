@@ -9,7 +9,7 @@ class Animation {
 
     for (int i = 0; i < imageCount ; i++) {
       // Use nf() to number format 'i' into four digits
-      String filename = imagePrefix + nf(i+1, 4) + ".png";
+      String filename = imagePrefix + str (i+1) + ".png";
       images[i] = loadImage(filename);
       images[i].resize(200,200);
     }
