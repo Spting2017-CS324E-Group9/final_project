@@ -1,10 +1,12 @@
 Game g;
 PImage tower, farm, mountain, forest, tundra, wheat,logging,castle,iron, scroll, smallscroll;
 int ind;
+Animation chop;
 
 void setup() {
   size(1000,800);
   g = new Game();
+  g.calculate();
   fill(20,250,47);
   int x = 1000/6-10;
   int y = 800/5-10;
@@ -30,6 +32,7 @@ void setup() {
   wheat.resize(x,y);
   logging = loadImage("logging.png");
   logging.resize(x,y);
+  chop = new Animation("chop",8);
 }
 void draw() {
  g.display(); 
@@ -42,11 +45,26 @@ void keyPressed(){
  if ( key == 's' && g.y <=41) {g.y +=1;}
  if ( key == 'd' && g.x<=54) {g.x +=1;}
  if ( key == ' ') {g.y = 0; g.x =0;}
- if ( keyCode == SHIFT) { ind =0;g.charList(ind);}
- if (g.pause == true && keyCode == DOWN && ind < g.charcount-1){ind +=1;g.charList(ind);}
- if (g.pause == true && keyCode == UP && ind > 1){ind -=1;g.charList(ind);}
- if (key == '/'){g.unpause();}
-   
+ if ( keyCode == SHIFT) { ind =0;g.charList(ind); g.calculate();}
+ if (g.pause == true && keyCode == LEFT && ind < g.charcount-1){ind +=1;g.charList(ind);}
+ if (g.pause == true && keyCode == RIGHT && ind > 0){ind -=1;g.charList(ind);}
+ if (key == '/'){g.unpause();} 
  }
   
+void mouseClicked() {
+  
+  if(g.pause == true && g.currentchar.tired == false){
+    for(int i = 0; i < 6; i++){
+      if(mouseX > i*1000/6 && mouseX <(i+1)*1000/6){g.currentchar.xloc = i;}}
+    for(int j = 0; j <4; j++) {
+      if(mouseY > (j+1)*800/5 && mouseX <(j+2)*800/5){g.currentchar.yloc = j;}}
+  g.currentchar.locate();
+  }
+}
+      
+  
+  
+
+
+
   
