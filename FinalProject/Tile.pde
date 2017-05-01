@@ -14,55 +14,32 @@ class Tile{
    if ( i == 2) {type = "Quarry";}
    if ( i == 3) {type = "Tower";}
    if ( i == 5) {type = "nothing";}
+   
+   // set image based on type
+   if(this.type == "Tower"){
+     building = tower;
+   }
+   if(this.type == "Farm"){{
+     building = tundra;
+   }
+   if(this.type == "Mill"){
+     building = forest;
+   }
+   if(this.type == "Quarry"){
+     building = mountain;
+   }
+   if(this.type == "nothing"){
+     building = mountain;
+   }
  }
  
  // display tiles; takes top-left x, y location
  void display(float x, float y) {
    
-   // assign images by type and captured values
-   if(this.type == "Tower"){
-     if(this.captured){
-       building = castle;
-     }
-     else {
-       building = tower;
-     }
-   }
-   if(this.type == "Farm"){
-     if(this.captured){
-       building = wheat;
-     }
-     else {
-       building = tundra;
-     }
-   }
-   if(this.type == "Mill"){
-     if(this.captured){
-       building = logging;
-     }
-     else {
-       building = forest;
-     }
-   }
-   if(this.type == "Quarry"){
-     if(this.captured){
-       building = iron;
-     }
-     else {
-       building = mountain;
-     }
-   }
-   if(this.type == "nothing"){
-     if(this.captured){
-       building = iron;
-     }
-     else {
-       building = mountain;
-     }
-   }
-   
    // display animation
    chop.display(x,y);
+   
+   // display tile
    noStroke();
    fill(100,250,100);
    if (captured == true){fill(200,100,50);}
@@ -72,6 +49,27 @@ class Tile{
  }
  
  // captures a tile
- void capture() {captured = true;}
+ void capture() {
+   
+   // set capture 
+   captured = true;
+   
+   // set image based on type
+   if(this.type == "Tower"){
+     building = castle;
+   }
+   if(this.type == "Farm"){{
+     building = wheat;
+   }
+   if(this.type == "Mill"){
+     building = logging;
+   }
+   if(this.type == "Quarry"){
+     building = iron;
+   }
+   if(this.type == "nothing"){
+     building = iron;
+   }
+ }
  
 }
