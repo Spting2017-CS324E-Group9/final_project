@@ -1,5 +1,7 @@
-import processing.sound.*;
-SoundFile file;
+import ddf.minim.*;
+Minim minim;
+AudioPlayer song;
+
 
 Game g;
 PImage tower, farm, mountain, forest, tundra, wheat,logging,castle,iron, scroll, smallscroll;
@@ -8,8 +10,12 @@ Animation chop;
 
 void setup() {
   size(1000,800);
-  file = new SoundFile(this, "Thatched_Villagers.mp3");
-  file.play();
+  
+  minim = new Minim(this);
+  song = minim.loadFile("Thatched_Villagers.mp3");
+  song.play();
+  
+  
   g = new Game();
   g.calculate();
   fill(20,250,47);

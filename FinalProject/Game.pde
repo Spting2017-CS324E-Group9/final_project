@@ -1,4 +1,5 @@
 class Game {
+  
   float food, wood, stone, defence, attack;
   float cfood, cwood, cstone;
   int day, x,y, charcount;
@@ -26,6 +27,8 @@ class Game {
    for(int i=0; i<4; i++){Character j = new Character();population[i] = j;}
    pause = false;
   }
+  
+  // Creates the background tiles
   void makeTiles(){
     for (int i = 0; i <120; i++){for(int j =0; j< 90; j++){
       float k = floor(random(3.99)) ;
@@ -39,6 +42,7 @@ class Game {
   } 
   }
   
+  // The main display function
   void display() {
     if (pause == false){
     image(scroll,-100,-20);
@@ -74,10 +78,13 @@ class Game {
     currentchar = population[a];
   }
   
+  // Unpauses the game
   void unpause(){this.pause = false;}
   
+  // Pauses the game
+  void pause(){this.pause = true;}
+  
   void calculate() {
-    
     cfood =0; cwood = 0; cstone = 0; defence = 0;
     for(int i = 0; i< charcount; i++){
         Tile j = population[i].location;
@@ -91,6 +98,7 @@ class Game {
     this.defence -= control/5;
   }
   
+  // Makes end of day calculations
   void newDay() {
     for(int i = 0; i< charcount; i++){population[i].tired = false;}
     this.day += 1;
@@ -101,10 +109,8 @@ class Game {
     this.food += cfood;
     this.wood += cwood;
     this.cstone += 1/(defence -attack) * 5;
-    this.stone += cstone;
-     
-    
-    
+    this.stone += cstone;  
   }
-  }
+  
+}
   
