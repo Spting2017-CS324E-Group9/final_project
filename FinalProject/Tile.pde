@@ -18,7 +18,8 @@ class Tile{
    if(this.type =="Farm"){building = tundra;if(this.captured == true){building = wheat;}}
    if(this.type =="Mill"){building = forest;if(this.captured == true){building = logging;}}
    if(this.type =="Quarry"){building = mountain;if(this.captured == true){building = iron;}}
-    if(this.type =="nothing"){building = mountain;if(this.captured == true){building = iron;}}
+   if(this.type =="nothing"){building = mountain;if(this.captured == true){building = iron;}}
+   chop.display(x,y);
    noStroke();
    fill(100,250,100);
    if (captured == true){fill(200,100,50);}

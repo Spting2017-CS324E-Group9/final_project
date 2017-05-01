@@ -7,11 +7,12 @@ class Animation {
     imageCount = count;
     images = new PImage[imageCount];
 
-    for (int i = 0; i < imageCount ; i++) {
+    for (int i = 1; i <= imageCount ; i++) {
       // Use nf() to number format 'i' into four digits
-      String filename = imagePrefix + str (i+1) + ".png";
-      images[i] = loadImage(filename);
-      images[i].resize(200,200);
+      
+      String filename = imagePrefix + i + ".png";
+      images[i-1] = loadImage(filename);
+      images[i-1].resize(200,200);
     }
   }
 

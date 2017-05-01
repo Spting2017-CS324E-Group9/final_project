@@ -17,8 +17,10 @@ class Character{
   void locate() {
     Tile dest = g.tiles[xloc+59+g.x][yloc+44+g.y]; 
     if(dest.pop <2 && dest.captured == true){
+      print("huzzah");
         this.location.pop -= 1;
         this.location = dest;
+        this.location.pop +=1;
         this.tired = true; 
     }
     if(dest.captured == false){
