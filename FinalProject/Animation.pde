@@ -1,4 +1,5 @@
 class Animation {
+  
   PImage[] images;
   int imageCount;
   int frame;
@@ -16,8 +17,8 @@ class Animation {
     }
   }
 
+  // display animation based on frame count
   void display(float xpos, float ypos) {
-   
     if (frameCount % 10 == 0) { 
     frame = (frame+1) % (imageCount);
     }

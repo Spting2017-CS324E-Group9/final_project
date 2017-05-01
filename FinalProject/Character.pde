@@ -1,4 +1,5 @@
 class Character{
+  
   float[] skills = new float[5];
   String[] names = {"Njal","Hrafenkel","Aelid","Snorri","Thorbjorn","Jacob","Dennis","Chris"};
   String name;
@@ -14,6 +15,7 @@ class Character{
     this.tired =false;
   }
   
+  // moves a character
   void locate() {
     Tile dest = g.tiles[xloc+59+g.x][yloc+44+g.y]; 
     if(dest.pop <2 && dest.captured == true){

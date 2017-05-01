@@ -1,6 +1,8 @@
 class Game {
   
+  // current amount
   float food, wood, stone, defence, attack;
+  // change values
   float cfood, cwood, cstone;
   int day, x,y, charcount;
   Character[] population = new Character[255];
@@ -9,7 +11,7 @@ class Game {
   boolean pause;
   String[] stats = {"Defence","Farming","Building", "Milling","Smithing"};
   int control;
-  
+
   Game() {
    control = 4;
    food = 10; 
@@ -48,14 +50,16 @@ class Game {
     image(scroll,-100,-20);
     fill(0);
     
-    for(int i = 0; i < 6; i ++) { for (int j = 0; j <4; j++) {
-      tiles[i+59+x][j+44+y].display(0 + i*width/6, 800/5+ j*height/5);
+    for(int i = 0; i < 6; i ++) { 
+      for (int j = 0; j <4; j++) {
+        tiles[i+59+x][j+44+y].display(0 + i*width/6, 800/5+ j*height/5);
       
-      fill(244,66,161);
-      int q = round(i+59+x);
-      int w = round(j+44+y);
-      text("("+q+","+w+")",0 + i*width/6, 800/5+ j*height/5+15);}}
-      
+        fill(244,66,161);
+        int q = round(i+59+x);
+        int w = round(j+44+y);
+        text("("+q+","+w+")",0 + i*width/6, 800/5+ j*height/5+15);
+      }
+    }   
     text("food: " + food +"("+cfood+")",75,50);
     text("wood: " + wood + "("+ cwood+")",75,75);
     text("stone: "+stone + "("+ cstone +")",75,100);
@@ -67,6 +71,8 @@ class Game {
     text("coming attack: " +j+ "-" +k,175,75);
     }
   }
+  
+  // displays the character list
   void charList(int a) {
     this.pause = true;
     image(smallscroll,760,140);
@@ -84,6 +90,7 @@ class Game {
   // Pauses the game
   void pause(){this.pause = true;}
   
+  // not sure what this function does
   void calculate() {
     cfood =0; cwood = 0; cstone = 0; defence = 0;
     for(int i = 0; i< charcount; i++){
@@ -100,16 +107,37 @@ class Game {
   
   // Makes end of day calculations
   void newDay() {
-    for(int i = 0; i< charcount; i++){population[i].tired = false;}
+    // increments day
     this.day += 1;
+    
+    // calculates attack
     float j = pow(day,3/2);
     float k = random(.75,1.5);
-    attack = j *k;
-    if(attack > this.defence| food < 0 | wood < 0) {g.pause = true; fill(255);rect(0,0,width,height);fill(0);text("You have died",300,300);}
-    this.food += cfood;
-    this.wood += cwood;
-    this.cstone += 1/(defence -attack) * 5;
-    this.stone += cstone;  
+    attack = j * k;
+    
+    // determine continue, if not, display lose screen
+    if(attack > this.defence| food < 0 | wood < 0) {
+      g.pause = true; 
+      fill(255);
+      rect(0,0,width,height);
+      fill(0);
+      text("You have died",300,300);
+    }
+    
+    // otherwise, reset day
+    else {
+      
+      // resets character movement 
+      for(int i = 0; i< charcount; i++){
+        population[i].tired = false;
+      }
+      
+      // calculate new resource values
+      this.food += cfood;
+      this.wood += cwood;
+      this.cstone += 1/(defence -attack) * 5;
+      this.stone += cstone;       
+    } 
   }
   
 }
