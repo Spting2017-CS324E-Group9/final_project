@@ -20,12 +20,48 @@ class Tile{
  void display(float x, float y) {
    
    // assign images by type and captured values
-   if(this.type =="Tower"){building = tower;if(this.captured == true){building = castle;}}
-   if(this.type =="Farm"){building = tundra;if(this.captured == true){building = wheat;}}
-   if(this.type =="Mill"){building = forest;if(this.captured == true){building = logging;}}
-   if(this.type =="Quarry"){building = mountain;if(this.captured == true){building = iron;}}
-   if(this.type =="nothing"){building = mountain;if(this.captured == true){building = iron;}}
+   if(this.type == "Tower"){
+     if(this.captured){
+       building = castle;
+     }
+     else {
+       building = tower;
+     }
+   }
+   if(this.type == "Farm"){
+     if(this.captured){
+       building = wheat;
+     }
+     else {
+       building = tundra;
+     }
+   }
+   if(this.type == "Mill"){
+     if(this.captured){
+       building = logging;
+     }
+     else {
+       building = forest;
+     }
+   }
+   if(this.type == "Quarry"){
+     if(this.captured){
+       building = iron;
+     }
+     else {
+       building = mountain;
+     }
+   }
+   if(this.type == "nothing"){
+     if(this.captured){
+       building = iron;
+     }
+     else {
+       building = mountain;
+     }
+   }
    
+   // display animation
    chop.display(x,y);
    noStroke();
    fill(100,250,100);
