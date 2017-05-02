@@ -106,8 +106,8 @@ class Game {
         if(j.type == "Quarry"){cstone += 2 +population[i].skills[4]/2;}
         if(j.type == "Tower"){defence += 2 +population[i].skills[0];}
     }
-    this.cfood -=charcount;
-    this.cwood -=charcount/2;
+    this.cfood -= charcount;
+    this.cwood -= charcount/2;
     this.defence -= control/5;
   }
   
