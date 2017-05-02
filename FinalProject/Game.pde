@@ -11,8 +11,19 @@ class Game {
   boolean pause;
   String[] stats = {"Defence","Farming","Building", "Milling","Smithing"};
   int control;
+  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
 
-  Game() {
+  Game(PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging ) {
+   this.tower = _tower;
+   this.tundra = _tundra;
+   this.forest = _forest;
+   this.mountain = _mountain;
+   this.snow = _snow;
+   this.castle = _castle;
+   this.iron = _iron;
+   this.farm = _farm;
+   this.wheat = _wheat;
+   this.logging = _logging;
    control = 4;
    food = 10; 
    wood = 6; 
@@ -26,7 +37,7 @@ class Game {
    x = 0;
    y = 0;
    charcount = 4;
-   for(int i=0; i<4; i++){Character j = new Character();population[i] = j;}
+   for(int i=0; i<4; i++){Character j = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);population[i] = j;}
    pause = false;
   }
   
@@ -36,7 +47,7 @@ class Game {
       for(int j =0; j< 90; j++){
         float k = floor(random(3.99)) ;
         int r = int(k);
-        tiles[i][j] = new Tile(r);
+        tiles[i][j] = new Tile(r,tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
         if(i >= 61 && i <= 62 && j >= 45 && j <= 46){tiles[i][j].capture();}
         if(j == 45){if(i == 61 |i == 62){tiles[i][j].type = "Farm";}}
         if(j == 46 && i == 61){tiles[i][j].type = "Mill";}

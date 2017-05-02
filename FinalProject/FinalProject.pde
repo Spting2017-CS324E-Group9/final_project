@@ -20,9 +20,7 @@ void setup() {
   //song = minim.loadFile("Thatched_Villagers.mp3");
   //song.play();
 
-  // initialize game
-  g = new Game();
-  g.calculate();
+
 
 
   fill(20, 250, 47);
@@ -61,6 +59,10 @@ void setup() {
   wheat.resize(x, y);
   logging = loadImage("logging.png");
   logging.resize(x, y);
+  
+    // initialize game
+  g = new Game(tower, tundra, forest, mountain, snow, castle, iron, farm, wheat, logging);
+  g.calculate();
 
   chop = new Animation("chop", 8);
 }
