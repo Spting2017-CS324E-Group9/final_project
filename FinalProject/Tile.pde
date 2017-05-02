@@ -41,12 +41,11 @@ class Tile{
    
    // display tile
    noStroke();
-   fill(100,250,100);
+   fill(220);
    if (captured == true){
      fill(200,100,50);
    }
    rect(x,y,x+250,y+200);
-   println (this.type);
    //image(building,x+5,y+5);
    fill(20,250,47);  
  }

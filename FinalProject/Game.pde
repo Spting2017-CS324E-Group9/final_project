@@ -48,28 +48,33 @@ class Game {
   // The main display function
   void display() {
     if (pause == false){
-    image(scroll,-100,-20);
-    fill(0);
-    
-    for(int i = 0; i < 6; i ++) { 
-      for (int j = 0; j <4; j++) {
-        tiles[i+59+x][j+44+y].display(0 + i*width/6, 800/5+ j*height/5);
+      fill(0);
       
-        fill(244,66,161);
-        int q = round(i+59+x);
-        int w = round(j+44+y);
-        text("("+q+","+w+")",0 + i*width/6, 800/5+ j*height/5+15);
+      // display tiles
+      for(int i = 0; i < 6; i ++) { 
+        for (int j = 0; j <6; j++) {
+          tiles[i+59+x][j+44+y].display(0 + i*width/6, 0 + j*height/6);
+        
+          fill(244,66,161);
+          int q = round(i+59+x);
+          int w = round(j+44+y);
+          text("("+q+","+w+")",0 + i*width/6, 0 + j*height/6+15);
+        }
       }
-    }   
-    text("food: " + food +"("+cfood+")",75,50);
-    text("wood: " + wood + "("+ cwood+")",75,75);
-    text("stone: "+stone + "("+ cstone +")",75,100);
-    text("Population: "+charcount,75, 125);
-    text("defence: " +defence,175,50);
-    text("day: " +day, 500,50);
-    float j = pow(day,3/2) *.75;
-    float k = pow(day,3/2) * 1.25;
-    text("coming attack: " +j+ "-" +k,175,75);
+      
+      // display header scroll
+      image(scroll, 0, -25);
+      
+      // display resources
+      text("food: " + food +"("+cfood+")",75,50);
+      text("wood: " + wood + "("+ cwood+")",75,75);
+      text("stone: "+stone + "("+ cstone +")",75,100);
+      text("Population: "+charcount,75, 125);
+      text("defence: " +defence,175,50);
+      text("day: " +day, 500,50);
+      float j = pow(day,3/2) *.75;
+      float k = pow(day,3/2) * 1.25;
+      text("coming attack: " +j+ "-" +k,175,75);
     }
   }
   
@@ -119,10 +124,12 @@ class Game {
     // determine continue, if not, display lose screen
     if(attack > this.defence| food < 0 | wood < 0) {
       g.pause = true; 
-      fill(255);
-      rect(0,0,width,height);
-      fill(0);
-      text("You have died",300,300);
+      image (fail_scroll, -45, -40);
+      textSize (20);
+      textAlign (CENTER);
+      textFont (end);
+      fill (0);
+      text("Failure!", width / 2, 200);
     }
     
     // otherwise, reset day
