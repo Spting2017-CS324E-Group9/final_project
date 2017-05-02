@@ -32,16 +32,17 @@ class Game {
   
   // Creates the background tiles
   void makeTiles(){
-    for (int i = 0; i <120; i++){for(int j =0; j< 90; j++){
-      float k = floor(random(3.99)) ;
-      int r = int(k);
-      tiles[i][j] = new Tile(r);
-      if(i >= 61 && i <= 62 && j >= 45 && j <= 46){tiles[i][j].capture();}
-      if(j == 45){if(i == 61 |i == 62){tiles[i][j].type = "Farm";}}
-      if(j == 46 && i == 61){tiles[i][j].type = "Mill";}
-      if(j == 46 && i == 62){tiles[i][j].type = "Quarry";}
-    }
-  } 
+    for (int i = 0; i <120; i++){
+      for(int j =0; j< 90; j++){
+        float k = floor(random(3.99)) ;
+        int r = int(k);
+        tiles[i][j] = new Tile(r);
+        if(i >= 61 && i <= 62 && j >= 45 && j <= 46){tiles[i][j].capture();}
+        if(j == 45){if(i == 61 |i == 62){tiles[i][j].type = "Farm";}}
+        if(j == 46 && i == 61){tiles[i][j].type = "Mill";}
+        if(j == 46 && i == 62){tiles[i][j].type = "Quarry";}
+      }
+    } 
   }
   
   // The main display function

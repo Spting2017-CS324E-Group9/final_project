@@ -9,26 +9,26 @@ class Tile{
  Tile(int i){
    building = tower;
    pop = 0;
-   if ( i == 0) {type = "Farm";}
-   if ( i == 1) {type = "Mill";}
-   if ( i == 2) {type = "Quarry";}
-   if ( i == 3) {type = "Tower";}
-   if ( i == 5) {type = "nothing";}
+   if (i == 0) {type = "Farm";}
+   if (i == 1) {type = "Mill";}
+   if (i == 2) {type = "Quarry";}
+   if (i == 3) {type = "Tower";}
+   if (i == 5) {type = "nothing";}
    
    // set image based on type
    if(this.type == "Tower"){
      building = tower;
    }
-   if(this.type == "Farm"){{
+   else if(this.type == "Farm"){
      building = tundra;
    }
-   if(this.type == "Mill"){
+   else if(this.type == "Mill"){
      building = forest;
    }
-   if(this.type == "Quarry"){
+   else if(this.type == "Quarry"){
      building = mountain;
    }
-   if(this.type == "nothing"){
+   else if(this.type == "nothing"){
      building = mountain;
    }
  }
@@ -42,9 +42,12 @@ class Tile{
    // display tile
    noStroke();
    fill(100,250,100);
-   if (captured == true){fill(200,100,50);}
+   if (captured == true){
+     fill(200,100,50);
+   }
    rect(x,y,x+250,y+200);
-   image(building,x+5,y+5);
+   println (this.type);
+   //image(building,x+5,y+5);
    fill(20,250,47);  
  }
  
@@ -58,7 +61,7 @@ class Tile{
    if(this.type == "Tower"){
      building = castle;
    }
-   if(this.type == "Farm"){{
+   if(this.type == "Farm"){
      building = wheat;
    }
    if(this.type == "Mill"){

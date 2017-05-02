@@ -6,7 +6,7 @@ AudioPlayer song;
 
 // game variables
 Game g;
-PImage tower, farm, mountain, forest, tundra, wheat,logging,castle,iron, scroll, smallscroll;
+PImage tower, farm, mountain, forest, tundra, wheat,logging,castle,iron, scroll, smallscroll, snow;
 int ind;
 Animation chop;
 
@@ -33,6 +33,9 @@ void setup() {
   smallscroll.resize(250,200);
   scroll = loadImage("scroll.png");
   scroll.resize(1200,800/5 +30);
+  
+  snow = loadImage ("snow.jpg");
+  snow.resize (x, y);
   iron = loadImage("iron.png");
   iron.resize(x,y);
   tower = loadImage("ruin.png");
@@ -51,6 +54,7 @@ void setup() {
   wheat.resize(x,y);
   logging = loadImage("logging.png");
   logging.resize(x,y);
+  
   chop = new Animation("chop",8);
 }
 void draw() {
