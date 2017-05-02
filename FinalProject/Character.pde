@@ -6,9 +6,21 @@ class Character{
   int xloc, yloc;
   Tile location;
   boolean tired;
+  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
   
-  Character() {
-    location = new Tile(5);
+  Character(PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging ) {
+
+   this.tower = _tower;
+   this.tundra = _tundra;
+   this.forest = _forest;
+   this.mountain = _mountain;
+   this.snow = _snow;
+   this.castle = _castle;
+   this.iron = _iron;
+   this.farm = _farm;
+   this.wheat = _wheat;
+   this.logging = _logging;
+    location = new Tile(5,tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
     for(int i= 0; i< 5; i++){skills[i] = round(5-sqrt(random(25)));}
     int j = floor(random(5));
     name = names[j];
@@ -32,12 +44,12 @@ class Character{
         this.tired = true;
         float j = random(100);
         if(j >= 50){
-          Character r = new Character();
+          Character r = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
           g.charcount +=1;
           g.population[g.charcount] = r;
         }
         if(j >= 75){
-          Character r = new Character();
+          Character r = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
           g.charcount +=1;
           g.population[g.charcount] = r;
         }

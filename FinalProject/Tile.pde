@@ -4,32 +4,45 @@ class Tile{
  PImage building;
  boolean captured;
  int pop;
+ PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
+
  
  // takes type of tile as int
- Tile(int i){
-   building = tower;
-   pop = 0;
-   if (i == 0) {type = "Farm";}
-   if (i == 1) {type = "Mill";}
-   if (i == 2) {type = "Quarry";}
-   if (i == 3) {type = "Tower";}
-   if (i == 5) {type = "nothing";}
+ Tile(int i,PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging){
+   this.tower = _tower;
+   this.tundra = _tundra;
+   this.forest = _forest;
+   this.mountain = _mountain;
+   this.snow = _snow;
+   this.castle = _castle;
+   this.iron = _iron;
+   this.farm = _farm;
+   this.wheat = _wheat;
+   this.logging = _logging;
+   
+   this.building = tower;
+   this.pop = 0;
+   if (i == 0) {this.type = "Farm";}
+   if (i == 1) {this.type = "Mill";}
+   if (i == 2) {this.type = "Quarry";}
+   if (i == 3) {this.type = "Tower";}
+   if (i == 5) {this.type = "nothing";}
    
    // set image based on type
    if(this.type == "Tower"){
-     building = tower;
+     this.building = tower;
    }
    else if(this.type == "Farm"){
-     building = tundra;
+     this.building = tundra;
    }
    else if(this.type == "Mill"){
-     building = forest;
+     this.building = forest;
    }
    else if(this.type == "Quarry"){
-     building = mountain;
+     this.building = mountain;
    }
    else if(this.type == "nothing"){
-     building = mountain;
+     this.building = mountain;
    }
  }
  
@@ -42,11 +55,11 @@ class Tile{
    // display tile
    noStroke();
    fill(220);
-   if (captured == true){
+   if (this.captured == true){
      fill(200,100,50);
    }
    rect(x,y,x+250,y+200);
-   //image(building,x+5,y+5);
+   image(this.building,x+5,y+5);
    fill(20,250,47);  
  }
  
@@ -54,23 +67,23 @@ class Tile{
  void capture() {
    
    // set capture 
-   captured = true;
+   this.captured = true;
    
    // set image based on type
    if(this.type == "Tower"){
-     building = castle;
+     this.building = castle;
    }
    if(this.type == "Farm"){
-     building = wheat;
+     this.building = wheat;
    }
    if(this.type == "Mill"){
-     building = logging;
+     this.building = logging;
    }
    if(this.type == "Quarry"){
-     building = iron;
+     this.building = iron;
    }
    if(this.type == "nothing"){
-     building = iron;
+     this.building = iron;
    }
  }
  
