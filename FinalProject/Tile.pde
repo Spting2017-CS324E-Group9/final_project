@@ -5,6 +5,7 @@ class Tile{
  boolean captured;
  int pop;
  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
+ feature[] features;
 
  
  // takes type of tile as int
@@ -30,19 +31,24 @@ class Tile{
    
    // set image based on type
    if(this.type == "Tower"){
-     this.building = tower;
+     this.building = snow;
    }
    else if(this.type == "Farm"){
-     this.building = tundra;
+     this.building = snow;
    }
    else if(this.type == "Mill"){
-     this.building = forest;
+     this.building = snow;
+     features = new feature[30];
+     for (int k = 0; k < 30; k++) {
+       tree t = new tree ();
+       features[k] = t;
+     }
    }
    else if(this.type == "Quarry"){
-     this.building = mountain;
+     this.building = snow;
    }
    else if(this.type == "nothing"){
-     this.building = mountain;
+     this.building = snow;
    }
  }
  
@@ -61,6 +67,17 @@ class Tile{
    rect(x,y,x+250,y+200);
    image(this.building,x+5,y+5);
    fill(20,250,47);  
+   if (features != null) {
+     for (int i = 0; i < features.length; i += 5) {
+       int w = this.building.width;
+       int h = this.building.height;
+       features[i].display (int (x + 15), int (y + 15 + (h / 6) * (i / 5)));
+       features[i + 1].display (int (x + 15 + (w / 5) * 1), int (y + 15 + (h / 6) * (i / 5)));
+       features[i + 2].display (int (x + 15 + (w / 5) * 2), int (y + 15 + (h / 6) * (i / 5)));
+       features[i + 3].display (int (x + 15 + (w / 5) * 3), int (y + 15 + (h / 6) * (i / 5)));
+       features[i + 4].display (int (x + 15 + (w / 5) * 4), int (y + 15 + (h / 6) * (i / 5)));
+     }
+   }
  }
  
  // captures a tile

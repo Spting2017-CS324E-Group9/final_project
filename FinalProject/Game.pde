@@ -11,34 +11,56 @@ class Game {
   boolean pause;
   String[] stats = {"Defence","Farming","Building", "Milling","Smithing"};
   int control;
-  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
+  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
 
-  Game(PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging ) {
-   this.tower = _tower;
-   this.tundra = _tundra;
-   this.forest = _forest;
-   this.mountain = _mountain;
-   this.snow = _snow;
-   this.castle = _castle;
-   this.iron = _iron;
-   this.farm = _farm;
-   this.wheat = _wheat;
-   this.logging = _logging;
-   control = 4;
-   food = 10; 
-   wood = 6; 
-   stone = 5;
-   defence = 5;
-   day = 1;
-   cfood =0;
-   cwood =0;
-   cstone = 0;
-   this.makeTiles();
-   x = 0;
-   y = 0;
-   charcount = 4;
-   for(int i=0; i<4; i++){Character j = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);population[i] = j;}
-   pause = false;
+  Game() {
+    
+    int v = 1000/6-10;
+    int w = 800/6-10;
+    // initialize all images
+    smallscroll = loadImage("smallscroll.png");
+    smallscroll.resize(250, 200);
+    scroll = loadImage("long_scroll.png");
+    scroll.resize (width, 250);
+    fail_scroll = loadImage ("another_scroll.png");
+    fail_scroll.resize (width + 100, height + 100);
+  
+    snow = loadImage ("snow.jpg");
+    snow.resize (v, w);
+    iron = loadImage("iron.png");
+    iron.resize(v, w);
+    tower = loadImage("ruin.png");
+    tower.resize(v, w);
+    castle = loadImage("castle.png");
+    castle.resize(v, w);
+    farm = loadImage("farm.png");
+    farm.resize(v, w);
+    mountain = loadImage("mountain.png");
+    mountain.resize(v, w);
+    forest = loadImage("forest.png");
+    forest.resize(v, w);
+    tundra = loadImage("tundra.png");
+    tundra.resize(v, w);
+    wheat = loadImage("wheat.png");
+    wheat.resize(v, w);
+    logging = loadImage("logging.png");
+    logging.resize(v, w);
+    
+    control = 4;
+    food = 10; 
+    wood = 6; 
+    stone = 5;
+    defence = 5;
+    day = 1;
+    cfood = 0;
+    cwood = 0;
+    cstone = 0;
+    this.makeTiles();
+    x = 0;
+    y = 0;
+    charcount = 4;
+    for(int i=0; i<4; i++){Character j = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);population[i] = j;}
+    pause = false;
   }
   
   // Creates the background tiles

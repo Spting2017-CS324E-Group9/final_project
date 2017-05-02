@@ -6,7 +6,6 @@ import ddf.minim.*;
 
 // game variables
 Game g;
-PImage tower, farm, mountain, forest, tundra, wheat, logging, castle, iron, scroll, fail_scroll, smallscroll, snow;
 int ind;
 Animation chop;
 PFont end;
@@ -24,44 +23,15 @@ void setup() {
 
 
   fill(20, 250, 47);
-  int x = 1000/6-10;
-  int y = 800/5-10;
+  
 
   // initialize fonts
   end = loadFont ("TempusSansITC-48.vlw");
 
-  // initialize all images
-  smallscroll = loadImage("smallscroll.png");
-  smallscroll.resize(250, 200);
-  scroll = loadImage("long_scroll.png");
-  //scroll.resize(1200,800/5 +30);
-  scroll.resize (width, 250);
-  fail_scroll = loadImage ("another_scroll.png");
-  fail_scroll.resize (width + 100, height + 100);
-
-  snow = loadImage ("snow.jpg");
-  snow.resize (x, y);
-  iron = loadImage("iron.png");
-  iron.resize(x, y);
-  tower = loadImage("ruin.png");
-  tower.resize(x, y);
-  castle = loadImage("castle.png");
-  castle.resize(x, y);
-  farm = loadImage("farm.png");
-  farm.resize(x, y);
-  mountain = loadImage("mountain.png");
-  mountain.resize(x, y);
-  forest = loadImage("forest.png");
-  forest.resize(x, y);
-  tundra = loadImage("tundra.png");
-  tundra.resize(x, y);
-  wheat = loadImage("wheat.png");
-  wheat.resize(x, y);
-  logging = loadImage("logging.png");
-  logging.resize(x, y);
+  
   
     // initialize game
-  g = new Game(tower, tundra, forest, mountain, snow, castle, iron, farm, wheat, logging);
+  g = new Game();
   g.calculate();
 
   chop = new Animation("chop", 8);
