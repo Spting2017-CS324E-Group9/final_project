@@ -13,7 +13,7 @@ class Game {
   int control;
   PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
   String state;
-  PImage start_image;
+  PImage start_image, instructions_image;
 
   Game() {
     
@@ -101,6 +101,20 @@ class Game {
       text("Instructions", (width/2), 460);
       text("Quit", (width/2), 570);
       
+      textSize(12);
+      stroke(0);
+      textAlign(LEFT);
+    }
+    
+    if (state == "instructions"){
+      image(scroll,0,0,width,height);
+      fill(#D8D8D8);
+      noStroke();
+      rect( (width/4), 700, (width*2/4), 80);
+      textAlign(CENTER,CENTER);
+      fill(0);
+      textSize(30);
+      text("Done", (width/2), 740);
       textSize(12);
       stroke(0);
       textAlign(LEFT);

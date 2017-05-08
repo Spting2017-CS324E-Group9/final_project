@@ -124,16 +124,33 @@ void mouseClicked() {
   if (gm.state == "init"){
     
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 400) && (mouseY>= 300) ) ){
+      fill(#767676);
+      rect( (width/4), 300, (width*2/4), 100);
       button_click.play(0);
       gm.state = "play";
     }
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 510) && (mouseY>= 410) ) ){
+      fill(#767676);
+      rect( (width/4), 410, (width*2/4), 100);
       button_click.play(0);
       gm.state = "instructions";
     }
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 620) && (mouseY>= 520) ) ){
+      fill(#767676);
+      rect( (width/4), 520, (width*2/4), 100);
       button_click.play(0);
       exit();
     }
+  }
+  
+  if (gm.state == "instructions"){
+    
+    if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 780) && (mouseY>= 700) ) ){
+      fill(#767676);      
+      rect( (width/4), 700, (width*2/4), 80);
+      button_click.play(0);
+      gm.state = "init";
+    }    
+    
   }
 }
