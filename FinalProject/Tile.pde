@@ -6,10 +6,12 @@ class Tile{
  int pop;
  PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging;
  feature[] features;
-
+ int x, y;
  
  // takes type of tile as int
- Tile(int i,PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging){
+ Tile(int i, int xloc, int yloc, PImage _tower, PImage _tundra, PImage _forest, PImage _mountain, PImage _snow,PImage _castle,PImage _iron, PImage _farm, PImage _wheat, PImage _logging){
+   x = xloc;
+   y = yloc;
    this.tower = _tower;
    this.tundra = _tundra;
    this.forest = _forest;
@@ -56,7 +58,7 @@ class Tile{
  void display(float x, float y) {
    
    // display animation
-   chop.display(x,y);
+   //chop.display(x,y);
    
    // display tile
    noStroke();
