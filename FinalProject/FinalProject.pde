@@ -108,15 +108,15 @@ void mouseClicked() {
   if (gm.pause == true && gm.currentchar.tired == false && gm.state == "play") {
     for (int i = 0; i < 6; i++) {
       if (mouseX > i*1000/6 && mouseX <(i+1)*1000/6) {
-        gm.currentchar.xloc = i;
+        gm.currentchar.x = i;
       }
     }
     for (int j = 0; j <4; j++) {
       if (mouseY > 800/5 + (j)*800/5 && mouseX <(j+1)*800/5 + 800/5) {
-        gm.currentchar.yloc = j;
+        gm.currentchar.y = j;
       }
     }
-    print(gm.currentchar.xloc, gm.currentchar.yloc, "\n");
+    print(gm.currentchar.x, gm.currentchar.y, "\n");
     print(mouseX, mouseY);
     gm.currentchar.locate();
   }

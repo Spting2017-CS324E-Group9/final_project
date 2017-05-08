@@ -61,7 +61,10 @@ class Game {
     x = 0;
     y = 0;
     charcount = 4;
-    for(int i=0; i<4; i++){Character j = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);population[i] = j;}
+    for(int i=0; i<4; i++){
+      Character j = new Character(tiles[61 + (i % 2)][45 + (i % 2)]);
+      population[i] = j;
+    }
     pause = false;
     
     state = "init";
@@ -75,7 +78,7 @@ class Game {
       for(int j =0; j< 90; j++){
         float k = floor(random(3.99)) ;
         int r = int(k);
-        tiles[i][j] = new Tile(r,tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
+        tiles[i][j] = new Tile(r, i, j, tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
         if(i >= 61 && i <= 62 && j >= 45 && j <= 46){tiles[i][j].capture();}
         if(j == 45){if(i == 61 |i == 62){tiles[i][j].type = "Farm";}}
         if(j == 46 && i == 61){tiles[i][j].type = "Mill";}
@@ -148,6 +151,11 @@ class Game {
       float j = pow(day,3/2) *.75;
       float k = pow(day,3/2) * 1.25;
       text("coming attack: " +j+ "-" +k,175,75);
+      
+      // display characters
+      for (int i = 0; i < this.charcount; i++) {
+        population[i].display ();
+      }
     }
   }
   
