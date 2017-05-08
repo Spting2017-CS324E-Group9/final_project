@@ -12,6 +12,8 @@ class Game {
   String[] stats = {"Defence","Farming","Building", "Milling","Smithing"};
   int control;
   PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
+  String state;
+  PImage start_image;
 
   Game() {
     
@@ -61,6 +63,10 @@ class Game {
     charcount = 4;
     for(int i=0; i<4; i++){Character j = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);population[i] = j;}
     pause = false;
+    
+    state = "init";
+    start_image = loadImage("Medieval_villages_1920x1200.jpg");
+    
   }
   
   // Creates the background tiles
@@ -80,7 +86,16 @@ class Game {
   
   // The main display function
   void display() {
-    if (pause == false){
+    
+    if (state == "init"){
+      image(start_image,0,0,width,height);
+      //textMode(CENTER);
+      //textSize(50);
+      text("Press 'S' to start. This is temporary.",300,180);
+      
+    }
+    
+    if ( (pause == false) && (state == "play") ){
       fill(0);
       
       // display tiles
