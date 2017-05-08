@@ -182,7 +182,7 @@ class Game {
     
     // determine continue, if not, display lose screen
     if(attack > this.defence| food < 0 | wood < 0) {
-      g.pause = true; 
+      gm.pause = true; 
       image (fail_scroll, -45, -40);
       textSize (20);
       textAlign (CENTER);
