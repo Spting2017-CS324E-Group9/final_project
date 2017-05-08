@@ -120,4 +120,20 @@ void mouseClicked() {
     print(mouseX, mouseY);
     gm.currentchar.locate();
   }
+  
+  if (gm.state == "init"){
+    
+    if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 400) && (mouseY>= 300) ) ){
+      button_click.play(0);
+      gm.state = "play";
+    }
+    if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 510) && (mouseY>= 410) ) ){
+      button_click.play(0);
+      gm.state = "instructions";
+    }
+    if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 620) && (mouseY>= 520) ) ){
+      button_click.play(0);
+      exit();
+    }
+  }
 }
