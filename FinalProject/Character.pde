@@ -29,7 +29,7 @@ class Character{
   
   // moves a character
   void locate() {
-    Tile dest = g.tiles[xloc+59+g.x][yloc+44+g.y]; 
+    Tile dest = gm.tiles[xloc+59+gm.x][yloc+44+gm.y]; 
     if(dest.pop <2 && dest.captured == true){
       print("huzzah");
         this.location.pop -= 1;
@@ -38,20 +38,20 @@ class Character{
         this.tired = true; 
     }
     if(dest.captured == false){
-      if(g.tiles[xloc+60+g.x][yloc +44+g.y].captured == true | g.tiles[xloc+58+g.x][yloc+44+g.y].captured == true |g.tiles[xloc+59+g.x][yloc+45+g.y].captured == true |g.tiles[xloc+59+g.x][yloc+43+g.y].captured == true){
+      if(gm.tiles[xloc+60+gm.x][yloc +44+gm.y].captured == true | gm.tiles[xloc+58+gm.x][yloc+44+gm.y].captured == true |gm.tiles[xloc+59+gm.x][yloc+45+gm.y].captured == true |gm.tiles[xloc+59+gm.x][yloc+43+gm.y].captured == true){
         dest.captured = true;
-        g.control +=1;
+        gm.control +=1;
         this.tired = true;
         float j = random(100);
         if(j >= 50){
           Character r = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
-          g.charcount +=1;
-          g.population[g.charcount] = r;
+          gm.charcount +=1;
+          gm.population[gm.charcount] = r;
         }
         if(j >= 75){
           Character r = new Character(tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging);
-          g.charcount +=1;
-          g.population[g.charcount] = r;
+          gm.charcount +=1;
+          gm.population[gm.charcount] = r;
         }
         
         

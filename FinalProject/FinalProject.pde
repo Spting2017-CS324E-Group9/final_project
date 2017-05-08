@@ -6,7 +6,7 @@ AudioPlayer song, button_click, button_click2, button_click3, button_click4, scr
 
 
 // game variables
-Game g;
+Game gm;
 int ind;
 Animation chop;
 PFont end;
@@ -38,86 +38,86 @@ void setup() {
   
   
     // initialize game
-  g = new Game();
-  g.calculate();
+  gm = new Game();
+  gm.calculate();
 
   chop = new Animation("chop", 8);
 }
 void draw() {
-  g.display();
+  gm.display();
 }
 
 void keyPressed() {
   
-  if ( g.state == "init" && key == 's' ){
+  if ( gm.state == "init" && key == 's' ){
     button_click.play(0);
-    g.state = "play";
+    gm.state = "play";
   }
   
   
   // screen scroll
-  if ( key == 'w' && g.y >= -43 && g.state == "play") {
-    g.y -=1;
+  if ( key == 'w' && gm.y >= -43 && gm.state == "play") {
+    gm.y -=1;
   }
-  if ( key == 'a' && g.x >= -57 && g.state == "play") {
-    g.x -=1;
+  if ( key == 'a' && gm.x >= -57 && gm.state == "play") {
+    gm.x -=1;
   }
-  if ( key == 's' && g.y <=41 && g.state == "play") {
-    g.y +=1;
+  if ( key == 's' && gm.y <=41 && gm.state == "play") {
+    gm.y +=1;
   }
-  if ( key == 'd' && g.x<=54 && g.state == "play") {
-    g.x +=1;
+  if ( key == 'd' && gm.x<=54 && gm.state == "play") {
+    gm.x +=1;
   }
-  if ( key == ' ' && g.state == "play") {
-    g.y = 0; 
-    g.x =0;
+  if ( key == ' ' && gm.state == "play") {
+    gm.y = 0; 
+    gm.x =0;
   }
 
   // toggle character list
-  if ( keyCode == SHIFT && g.state == "play") { 
+  if ( keyCode == SHIFT && gm.state == "play") { 
     scroll_sound.play(0);
     ind =0;
-    g.charList(ind); 
-    g.calculate();
+    gm.charList(ind); 
+    gm.calculate();
   }
-  if (g.pause == true && keyCode == LEFT && ind < g.charcount-1 && g.state == "play") {
+  if (gm.pause == true && keyCode == LEFT && ind < gm.charcount-1 && gm.state == "play") {
     button_click4.play(0);
     ind +=1;
-    g.charList(ind);
+    gm.charList(ind);
   }
-  if (g.pause == true && keyCode == RIGHT && ind > 0 && g.state == "play") {
+  if (gm.pause == true && keyCode == RIGHT && ind > 0 && gm.state == "play") {
     button_click4.play(0);
     ind -=1;
-    g.charList(ind);
+    gm.charList(ind);
   }
-  if (key == '/' && g.state == "play") {
+  if (key == '/' && gm.state == "play") {
     button_click2.play(0);
-    g.unpause();
-    g.calculate();
+    gm.unpause();
+    gm.calculate();
   }
 
   // end day
-  if (keyCode == ENTER && g.state == "play") {
-    g.newDay();
+  if (keyCode == ENTER && gm.state == "play") {
+    gm.newDay();
   }
 }
 
 void mouseClicked() {
 
   // assign tile to character
-  if (g.pause == true && g.currentchar.tired == false && g.state == "play") {
+  if (gm.pause == true && gm.currentchar.tired == false && gm.state == "play") {
     for (int i = 0; i < 6; i++) {
       if (mouseX > i*1000/6 && mouseX <(i+1)*1000/6) {
-        g.currentchar.xloc = i;
+        gm.currentchar.xloc = i;
       }
     }
     for (int j = 0; j <4; j++) {
       if (mouseY > 800/5 + (j)*800/5 && mouseX <(j+1)*800/5 + 800/5) {
-        g.currentchar.yloc = j;
+        gm.currentchar.yloc = j;
       }
     }
-    print(g.currentchar.xloc, g.currentchar.yloc, "\n");
+    print(gm.currentchar.xloc, gm.currentchar.yloc, "\n");
     print(mouseX, mouseY);
-    g.currentchar.locate();
+    gm.currentchar.locate();
   }
 }
