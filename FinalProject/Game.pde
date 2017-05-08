@@ -89,10 +89,21 @@ class Game {
     
     if (state == "init"){
       image(start_image,0,0,width,height);
-      //textMode(CENTER);
-      //textSize(50);
-      text("Press 'S' to start. This is temporary.",300,180);
+      fill(#D8D8D8);
+      noStroke();
+      rect( (width/4), 300, (width*2/4), 100);
+      rect( (width/4), 410, (width*2/4), 100);
+      rect( (width/4), 520, (width*2/4), 100);
+      textAlign(CENTER,CENTER);
+      fill(0);
+      textSize(30);
+      text("Start Game", (width/2), 350);
+      text("Instructions", (width/2), 460);
+      text("Quit", (width/2), 570);
       
+      textSize(12);
+      stroke(0);
+      textAlign(LEFT);
     }
     
     if ( (pause == false) && (state == "play") ){
