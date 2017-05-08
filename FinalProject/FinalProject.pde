@@ -121,17 +121,15 @@ void mouseClicked() {
     gm.currentchar.locate();
   }
   
-  if (g.state == "init"){
-      rect( (width/4), 300, (width*2/4), 100);
-      rect( (width/4), 410, (width*2/4), 100);
-      rect( (width/4), 520, (width*2/4), 100);
+  if (gm.state == "init"){
+    
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 400) && (mouseY>= 300) ) ){
       button_click.play(0);
-      g.state = "play";
+      gm.state = "play";
     }
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 510) && (mouseY>= 410) ) ){
       button_click.play(0);
-      g.state = "instructions";
+      gm.state = "instructions";
     }
     if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 620) && (mouseY>= 520) ) ){
       button_click.play(0);
