@@ -180,7 +180,7 @@ class Game {
     float j = pow(day,3/2);
     float k = random(.75,1.5);
     attack = j *k;
-    gm.pause = true; 
+    //gm.pause = true; 
     image (fail_scroll, -45, -40);
     textSize (20);
     textAlign (CENTER);
