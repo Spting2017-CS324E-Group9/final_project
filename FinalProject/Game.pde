@@ -120,6 +120,7 @@ class Game {
       textAlign(CENTER);
       textSize(20);
       fill(0);
+      //textFont(end);
       text(controls,100,200,900,700);
       rectMode(CORNER);
       fill(#D8D8D8);
@@ -229,9 +230,12 @@ class Game {
       image (fail_scroll, -45, -40);
       textSize (20);
       textAlign (CENTER);
-      textFont (end);
+      //textFont (end);
       fill (0);
       text("Failure!", width / 2, 200);
+      textSize(12);
+      textAlign(LEFT);
+      
     }
     
     // otherwise, reset day

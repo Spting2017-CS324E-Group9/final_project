@@ -118,9 +118,6 @@ void mouseClicked() {
   }
   
   if (gm.state == "play" && gm.pause == false){
-      //rect(880,20,45,45);
-      //rect(880,64,45,45);
-      //rect(870,110,70,50);
     if( ( (mouseX <= 925) && (mouseX>= 880) ) && ( (mouseY <= 65) && (mouseY>= 20) ) ){
       button_click.play(0);
       if(muted){
