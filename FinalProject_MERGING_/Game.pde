@@ -33,8 +33,12 @@ class Game {
    for(int i=0; i<4; i++){Character j = new Character();population[i] = j;}
    pause = false;
    
+    smallscroll = loadImage("smallscroll.png");
+    smallscroll.resize(250, 200);
     scroll = loadImage("long_scroll.png");
     scroll.resize (width, 250);
+    fail_scroll = loadImage ("another_scroll.png");
+    fail_scroll.resize (width + 100, height + 100);
    
     state = "init";
     start_image = loadImage("Medieval_villages_1920x1200.jpg");
@@ -188,6 +192,7 @@ class Game {
     rect(0,0,width,height);
     fill(0);
     textSize(40);
+    
     text("YOU DIED",200,200);
   }
   }
