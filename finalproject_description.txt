@@ -1,0 +1,7 @@
+This project is a turn-based strategy game in which the player has to defend against attacking enemies by building up their defence and collecting resources. 
+
+Jacob was responsible for creating the tiling system and underlying mechanics of gameplay.
+
+Dennis was responsible for creating the main menu and UI. 
+
+Chris was responsible for collecting input data.
