@@ -154,7 +154,7 @@ class Game {
       
       // display characters
       for (int i = 0; i < this.charcount; i++) {
-        population[i].display ();
+        population[i].anim.display (population[i].x + 59 + this.x, population[i].y + 44 + this.y);
       }
     }
   }

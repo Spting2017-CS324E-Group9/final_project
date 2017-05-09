@@ -8,7 +8,6 @@ AudioPlayer song, button_click, button_click2, button_click3, button_click4, scr
 // game variables
 Game gm;
 int ind;
-Animation chop;
 PFont end;
 
 void setup() {
@@ -25,23 +24,14 @@ void setup() {
   button_click3 = minim.loadFile("button-17.mp3");
   button_click4 = minim.loadFile("button-21.mp3");
   
-
-
-
-
   fill(20, 250, 47);
-  
-
+ 
   // initialize fonts
   end = loadFont ("TempusSansITC-48.vlw");
 
-  
-  
-    // initialize game
+  // initialize game
   gm = new Game();
   gm.calculate();
-
-  chop = new Animation("chop", 8);
 }
 void draw() {
   gm.display();
