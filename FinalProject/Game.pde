@@ -14,6 +14,7 @@ class Game {
   PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
   String state, previous_state;
   PImage start_image, instructions_image, mute_button, exit_button, instructions_button;
+  String controls = ("Keep your defence above the attack, if any of your resources hit 0 you lose. \n\nMove around the map with awsd. Press space to return to the center of your town. Use shift to see the people in your town and their skills. Cycle through them with left and right and assign them an appropriate task. Press '/' to close the character menu. While the character menu is open, click on a controlled tile to have that character begin work on that tile, and click on a neighboring tile to have your character capture that tile. Characters can only perform one action per day. Press enter to end the day and see how you fare against the forces of the night.\n\n\nGood Luck!");
 
   Game() {
     
@@ -115,6 +116,12 @@ class Game {
     
     if (state == "instructions"){
       image(scroll,0,0,width,height);
+      rectMode(CORNERS);
+      textAlign(CENTER);
+      textSize(20);
+      fill(0);
+      text(controls,100,200,900,700);
+      rectMode(CORNER);
       fill(#D8D8D8);
       noStroke();
       rect( (width/4), 700, (width*2/4), 80);
@@ -147,14 +154,10 @@ class Game {
       
       //UI buttons
       mute_button.resize(45,45);
-//      fill(0);
-//      rect(880,20,45,45);
       image(mute_button,880,20);
       instructions_button.resize(45,45);
-//      rect(880,64,45,45);
       image(instructions_button,880,64);
       exit_button.resize(70,50);
-//      rect(870,110,70,50);
       image(exit_button,870,110);
       
       // display resources

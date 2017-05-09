@@ -148,7 +148,7 @@ void mouseClicked() {
     }
     if( ( (mouseX <= 925) && (mouseX>= 880) ) && ( (mouseY <= 155) && (mouseY>= 110) ) ){
       button_click.play(0);
-      gm.state = "init";
+      exit();
     }
   }
   
