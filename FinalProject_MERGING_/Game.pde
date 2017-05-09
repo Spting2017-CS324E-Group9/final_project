@@ -11,7 +11,7 @@ class Game {
   String dayString;
   PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
   String state, previous_state;
-  PImage start_image, instructions_image, mute_button, exit_button, instructions_button;
+  PImage start_image, instructions_image, mute_button, exit_button, instructions_button, title_image;
   String controls = ("Keep your defence above the attack, if any of your resources hit 0 you lose. \n\nMove around the map with awsd. Press space to return to the center of your town. Use shift to see the people in your town and their skills. Cycle through them with left and right and assign them an appropriate task. Press '/' to close the character menu. While the character menu is open, click on a controlled tile to have that character begin work on that tile, and click on a neighboring tile to have your character capture that tile. Characters can only perform one action per day. Press enter to end the day and see how you fare against the forces of the night.\n\n\nGood Luck!");
   
   Game() {
@@ -45,6 +45,7 @@ class Game {
     mute_button = loadImage("mute.png");
     exit_button = loadImage("exit_button.png");
     instructions_button = loadImage("info_button.png");
+    title_image = loadImage("cooltext243280598908684.png");
   }
   void makeTiles(){
     for (int i = 0; i <120; i++){for(int j =0; j< 90; j++){
@@ -74,7 +75,9 @@ class Game {
       text("Start Game", (width/2), 350);
       text("Instructions", (width/2), 460);
       text("Quit", (width/2), 570);
-      
+      imageMode(CENTER);
+      image(title_image,width/2,200);
+      imageMode(CORNER);
       textSize(12);
       stroke(0);
       textAlign(LEFT);
