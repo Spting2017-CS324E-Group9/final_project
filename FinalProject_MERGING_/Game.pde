@@ -186,7 +186,7 @@ class Game {
     textSize(12);
     textAlign(LEFT);
     if(attack > this.defence| food < 0 | wood < 0 | stone <0) {this.kill();}
-    gm.pause = false;
+    state = "end_day";
     this.food += cfood;
     this.wood += cwood;
     this.stone -= (1-(defence - attack)/defence)*5;
