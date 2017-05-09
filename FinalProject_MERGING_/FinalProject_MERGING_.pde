@@ -206,7 +206,11 @@ void mouseClicked() {
       exit();
     }    
     
-  } 
+  }
+  if (gm.state == "end_day"){
+    gm.pause = false;
+    gm.state = "play";
+  }
 }
       
   
