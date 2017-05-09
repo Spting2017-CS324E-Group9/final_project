@@ -99,7 +99,8 @@ class Game {
     }
     
     if (pause == false && (state == "play")){
-    image(scroll,-100,-20);
+    //image(scroll,-100,-20);
+    image(scroll,0,-25);
     fill(0);
     
     for(int i = 0; i < 6; i ++) { for (int j = 0; j <4; j++) {
