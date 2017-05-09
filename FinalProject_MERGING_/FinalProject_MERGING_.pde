@@ -196,7 +196,17 @@ void mouseClicked() {
     }    
     
   }  
-  
+
+  if (gm.state == "kill"){
+    
+    if( ( (mouseX <= ((width/4)+(width*2/4))) && (mouseX>= (width/4)) ) && ( (mouseY <= 780) && (mouseY>= 700) ) ){
+      fill(#767676);      
+      rect( (width/4), 700, (width*2/4), 80);
+      button_click.play(0);
+      exit();
+    }    
+    
+  } 
 }
       
   

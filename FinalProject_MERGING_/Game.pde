@@ -196,13 +196,23 @@ class Game {
     
   }
   void kill(){
-    this.pause = true;
+    this.state = "kill";
     fill(255);
     rect(0,0,width,height);
     fill(0);
     textSize(40);
-    
-    text("YOU DIED",200,200);
+    textAlign(CENTER);
+    text("YOU DIED",width/2,height/2);
+      fill(#D8D8D8);
+      noStroke();
+      rect( (width/4), 700, (width*2/4), 80);
+      textAlign(CENTER,CENTER);
+      fill(0);
+      textSize(30);
+      text("EXIT", (width/2), 740);
+      textSize(12);
+      stroke(0);
+      textAlign(LEFT);
   }
   }
   
