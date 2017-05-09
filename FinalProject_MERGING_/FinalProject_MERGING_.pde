@@ -79,6 +79,8 @@ void setup() {
 void draw() {
  if(frameCount % 60 == 0){gm.display();}
  if(gm.pause == true){gm.charList(ind);}
+ 
+ if(gm.state != "end_day"){
   for (int i =0; i <gm.charcount-1; i++){
         Animation a = m;
         if(gm.population[i].Job == "Farming"){a =m;}
@@ -95,7 +97,7 @@ void draw() {
           }  
         }
         }
-
+     }
     } 
 
 
