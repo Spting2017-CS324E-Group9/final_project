@@ -12,8 +12,8 @@ class Game {
   String[] stats = {"Defence","Farming","Building", "Milling","Smithing"};
   int control;
   PImage tower,tundra,forest,mountain,snow, castle, iron, farm, wheat, logging, smallscroll, scroll, fail_scroll;
-  String state;
-  PImage start_image, instructions_image;
+  String state, previous_state;
+  PImage start_image, instructions_image, mute_button, exit_button, instructions_button;
 
   Game() {
     
@@ -69,6 +69,9 @@ class Game {
     
     state = "init";
     start_image = loadImage("Medieval_villages_1920x1200.jpg");
+    mute_button = loadImage("mute.png");
+    exit_button = loadImage("exit_button.png");
+    instructions_button = loadImage("info_button.png");
     
   }
   
@@ -107,6 +110,7 @@ class Game {
       textSize(12);
       stroke(0);
       textAlign(LEFT);
+      image(mute_button, 50,700);
     }
     
     if (state == "instructions"){
@@ -141,6 +145,18 @@ class Game {
       // display header scroll
       image(scroll, 0, -25);
       
+      //UI buttons
+      mute_button.resize(45,45);
+//      fill(0);
+//      rect(880,20,45,45);
+      image(mute_button,880,20);
+      instructions_button.resize(45,45);
+//      rect(880,64,45,45);
+      image(instructions_button,880,64);
+      exit_button.resize(70,50);
+//      rect(870,110,70,50);
+      image(exit_button,870,110);
+      
       // display resources
       text("food: " + food +"("+cfood+")",75,50);
       text("wood: " + wood + "("+ cwood+")",75,75);
@@ -156,6 +172,8 @@ class Game {
       for (int i = 0; i < this.charcount; i++) {
         population[i].anim.display (population[i].x + 59 + this.x, population[i].y + 44 + this.y);
       }
+      
+      
     }
   }
   
