@@ -177,6 +177,12 @@ class Game {
     float j = pow(day,3/2);
     float k = random(.75,1.5);
     attack = j *k;
+    //gm.pause = true; 
+    image (fail_scroll, -45, -40);
+    textSize (20);
+    textAlign (CENTER);
+    fill (0);
+    text("End of Day \n Defend Against the Attackers!", width / 2, 200);
     if(attack > this.defence| food < 0 | wood < 0 | stone <0) {this.kill();}
     this.food += cfood;
     this.wood += cwood;
