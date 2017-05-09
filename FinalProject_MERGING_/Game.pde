@@ -185,16 +185,23 @@ class Game {
     textSize (20);
     textAlign (CENTER);
     fill (0);
-    text("End of Day \n Defend Against the Attackers!", width / 2, 200);
-    textSize(12);
-    textAlign(LEFT);
+    text("End of Day", width / 2, 200);
     if(attack > this.defence| food < 0 | wood < 0 | stone <0) {this.kill();}
-    state = "end_day";
+    else {
+     state = "end_day";
+     textSize (20);
+     textAlign (CENTER);
+     fill (0);
+     text("You Survived! Congratulations \n Click to continue", width / 2, 270);
+    }
+    
     this.food += cfood;
     this.wood += cwood;
     this.stone -= (1-(defence - attack)/defence)*5;
     this.stone += cstone;
-    this.dayString = " "; 
+    this.dayString = " ";
+    textSize(12);
+    textAlign(LEFT);
     
     
   }
