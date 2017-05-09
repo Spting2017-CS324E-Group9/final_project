@@ -33,6 +33,9 @@ class Game {
    for(int i=0; i<4; i++){Character j = new Character();population[i] = j;}
    pause = false;
    
+    scroll = loadImage("long_scroll.png");
+    scroll.resize (width, 250);
+   
     state = "init";
     start_image = loadImage("Medieval_villages_1920x1200.jpg");
     mute_button = loadImage("mute.png");
